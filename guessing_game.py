@@ -59,7 +59,7 @@ while True:
         print (f"\nThe median of your attempts is {medi}")
     
     
-        repeat=input("\n Do you wanna play again? yes/no:   ")
+        repeat=input(f"\n Do you wanna play again {your_name}? yes/no:   ")
         if repeat !="yes":
             print("\n \n Thanks for playing")
             break
