@@ -17,19 +17,23 @@ you_tried = []
 
 def start_game():
 # Write your code inside this function.
-while True:
-        bingo = 34 
+  while True:
+        bingo =random.randint(1, 10)
 
         print("Welcome to the number guessing game!!!")
-        your_name = input("Register your name: ")
+        your_name = input("Register your name: ").strip()
         print(f"Hello {your_name}!!!")
     
         attempts = 0  
 
         while True:
-            choosen_number = int(input("\n Guess a number from 0 to 100: "))  
+            try:
+                choosen_number = int(input("\n Guess a number from 0 to 10: ")) 
+            except ValueError:
+                print("Please enter a number from 0 to 10")
+                continue
 
-            if choosen_number > 100 or choosen_number < 0:
+            if choosen_number > 10 or choosen_number < 0:
                 print("Oops, the number is outside of the range!! Please try again.")
                 continue
         
@@ -40,7 +44,7 @@ while True:
             elif choosen_number < bingo:
                 print("Too low, try higher.")
             else: 
-                print("Congrats, that's the number we've been looking for!")
+                print("\n\n***Congrats, that's the number we've been looking for!***")
             
                 you_tried.append(attempts)
                         
@@ -59,9 +63,9 @@ while True:
         print (f"\nThe median of your attempts is {medi}")
     
     
-        repeat=input(f"\n Do you wanna play again {your_name}? yes/no:   ")
-        if repeat !="yes":
-            print("\n \n Thanks for playing")
+        repeat = input(f"\nDo you want to play again, {your_name}? (yes/y to continue, no to exit): ").strip().lower()
+        if repeat not in ["yes", "y"]:  
+            print("\n\nThanks for playing!")
             break
     
     
